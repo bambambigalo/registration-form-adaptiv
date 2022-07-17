@@ -1,5 +1,226 @@
-$colorh1: green;
-
-h1 {
-    color:$colorh1;
+@import url('./fonts.scss');
+@mixin paddMargP {
+    padding: 0;
+    margin: 0;
 }
+@mixin lableFont {
+    font-family: $fontTextForm;
+    font-size: 12px;
+    line-height: 14px;
+    color:$colorLable;
+}
+@mixin inputStyle {
+    padding: 0;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: none;
+    outline: 0;
+    border-bottom: solid 0.7px #F2F2F2;
+    font-family: $fontTextForm;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    color:$ColorTextForm ;
+    
+}
+@mixin selectStyle {
+    display: flex;
+    align-items: center;
+    padding-bottom: 3%;
+    border: none;
+    border-bottom: solid 0.7px #F2F2F2;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: $fontTextForm;
+    line-height: 16px;
+    color:$ColorTextForm ;
+}
+$colorLable:#7C7C7C;
+$mainColor: #5A61ED;
+$whiteText: #ffffff;
+$ColorTextForm:#111111;
+$fontSignUp: 'PT Sans';
+$fontTextForm: 'Work Sans';
+
+html {line-height: 1.15; -webkit-text-size-adjust: 100%;}
+body {
+    margin: 0;
+}
+.wraper {
+    background-color: #F2F2F2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+// main form block =======================
+#main_content_form {
+    width: 46.181%;
+    display: flex;
+    background-color:#FFFFFF;
+    // left_part_form ====================
+    .left_part_form {
+        width: 20.633%;
+        background-color: $mainColor;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        .vertical_text {
+            margin: 0 5% 17% 0% ;
+            padding: 0;
+            color: $whiteText;
+            font-weight: 400;
+            font-size: 49px;
+            line-height: 63px;
+            letter-spacing: 0.5px;
+            font-family: $fontSignUp;
+            writing-mode: vertical-rl;
+            text-orientation: mixed ;
+            transform: rotate(-180.39deg); 
+        }
+    }
+    // right_part_form ====================
+    .right_part_form {
+        width: 79.368%;
+        p {
+            @include paddMargP;
+        }
+        .block_form {
+            padding: 4% 2% 3% 2%;
+            // header_form ================
+            .header_form {
+                .title_form{
+                    font-family: $fontTextForm;
+                    font-size: 22px;
+                    line-height: 26px;
+                    font-weight: 600;
+                    letter-spacing: -0.46px;
+                }
+                .header_text {
+                    font-family: $fontTextForm;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: $ColorTextForm;
+                }
+            }
+            // content_form ===============
+            .content_form {
+                
+                form {
+                    margin-top: 5%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+
+                    label {
+                        @include lableFont;
+                    }
+                    select {
+                        @include selectStyle;
+                     }
+                    .input_block {
+                        width: 49%;
+                        margin-top: 2%;
+                        display: flex;
+                        flex-direction: column;
+
+                        input {
+                            @include inputStyle;
+                        }
+                    }
+                    .date_of_birth {
+                        display: flex;
+                        justify-content: space-between;
+                        #days {
+                            width: 22.56%;
+                        }
+                        #months {
+                            width: 36.66%;
+                        }
+                        #years {
+                            width: 27.26%;
+                        }
+                    }
+                    .gender {
+                        padding-top: 4%;
+                        width: 50%;
+                        display: flex;
+                        align-items: center;
+
+                        // button color change=============
+                        input[type='radio']:checked:before {
+                            width: 12px;
+                            height: 12px;
+                            border-radius: 50%;
+                            top: -1px;
+                            left: -1px;
+                            position: relative;
+                            background-color: #fff;
+                            content: '';
+                            display: inline-block;
+                            visibility: visible;
+                            border:  solid 1px $mainColor;
+                        }
+                        input[type='radio']:checked:after {
+                            width: 8px;
+                            height: 8px;
+                            border-radius: 15px;
+                            top: -19px;
+                            left: 2px;
+                            position: relative;
+                            background-color: $mainColor;
+                            content: '';
+                            display: inline-block;
+                            visibility: visible;
+                            
+                        }
+                    }
+                    .pass {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+            }
+            // footer_form ===============
+            .footer_form {
+                margin-top: 11%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .text_footer {
+                    font-family:$fontTextForm ;
+                    font-size: 13px;
+                    line-height: 15px;
+                    a{
+                        color: $mainColor;
+                        text-decoration: underline;
+                        font-weight: 600;
+                    }
+                }
+                // button form ================
+                .btn_form {
+                    padding: 1.5% 6% 1.5% 6%;
+                    border: none;
+                    background-color:$mainColor ;
+                    font-family:$fontSignUp ;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 18px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                } 
+            } 
+        }
+        
+    }
+}
+
+
