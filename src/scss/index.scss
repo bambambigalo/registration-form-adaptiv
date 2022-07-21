@@ -35,6 +35,7 @@
     line-height: 16px;
     color:$ColorTextForm ;
 }
+$fontSize: calc(12px + 6 * (100vw / 1920));
 $colorLable:#7C7C7C;
 $mainColor: #5A61ED;
 $whiteText: #ffffff;
@@ -59,7 +60,9 @@ body {
 }
 // main form block =======================
 #main_content_form {
-    width: 46.181%;
+    // width: 46.181%;
+    margin: 0 1em 0 1em ;
+    width: 41.5625em;
     display: flex;
     background-color:#FFFFFF;
     // left_part_form ====================
@@ -87,6 +90,9 @@ body {
     // right_part_form ====================
     .right_part_form {
         width: 79.368%;
+        display: flex;
+        justify-content: center;
+        background-image: url('/src/image/Shape.svg');
         p {
             @include paddMargP;
         }
@@ -110,12 +116,14 @@ body {
             }
             // content_form ===============
             .content_form {
-                
+                    display: flex;
+                    align-items: center;
                 form {
                     margin-top: 5%;
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: space-between;
+                    
 
                     label {
                         @include lableFont;
@@ -124,10 +132,11 @@ body {
                         @include selectStyle;
                      }
                     .input_block {
-                        width: 49%;
+                        width: 14.65625em;
                         margin-top: 2%;
                         display: flex;
                         flex-direction: column;
+                        justify-content: center;
 
                         input {
                             @include inputStyle;
@@ -170,7 +179,7 @@ body {
                             width: 8px;
                             height: 8px;
                             border-radius: 15px;
-                            top: -19px;
+                            top: -20px;
                             left: 2px;
                             position: relative;
                             background-color: $mainColor;
@@ -180,11 +189,7 @@ body {
                             
                         }
                     }
-                    .pass {
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-between;
-                    }
+                   
                 }
             }
             // footer_form ===============
@@ -193,6 +198,7 @@ body {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                flex-wrap: wrap;
                 .text_footer {
                     font-family:$fontTextForm ;
                     font-size: 13px;
